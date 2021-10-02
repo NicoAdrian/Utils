@@ -1,8 +1,9 @@
 import functools
 import asyncio
+from typing import Callable, Any
 
 
-def run_in_executor(f):
+def run_in_executor(f: Callable[..., Any]) -> Callable[..., Any]:
     """
     Enable us to run any function in a separate thread or process, depending of the current executor (default is thread)
     """

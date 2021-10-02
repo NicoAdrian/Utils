@@ -1,9 +1,10 @@
 import logging
 import asyncio
 import functools
+from typing import Callable, Any
 
 
-def retry(n):
+def retry(n: int) -> Callable[..., Any]:
     def wrapper(f):
         err_msg = "Exception with function '{f}' with params {args} {kwargs}: {ex}; Retries left: {n}"
         # I hate code duplication but couldn't find a way to handle both sync and async functions
